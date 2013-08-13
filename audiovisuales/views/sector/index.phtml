@@ -1,0 +1,26 @@
+<h2>Sectores</h2>
+<?php if(isset($this->sector) && count($this->sector)) : ?>
+
+<table>
+    
+    <?php for($i = 0; $i < count($this->sector); $i++): ?>
+    
+    <tr>
+        
+        <td><?php echo $this->sector[$i]['id_categorias']; ?></td>
+        <td><?php echo $this->sector[$i]['nombre']; ?></td>
+        <td><a href="<?php echo BASE_URL . 'sector/editar/' . $this->sector[$i]['id_categorias']; ?>">Editar</a></td>
+        <td><a href="<?php echo BASE_URL . 'sector/eliminar/' . $this->sector[$i]['id_categorias']; ?>">Eliminar</a></td>
+    </tr>
+    
+    <?php endfor;?>
+</table>
+
+<?php else: ?>
+
+<p><strong>No hay posts!</strong></p>
+
+<?php endif; ?>
+
+
+

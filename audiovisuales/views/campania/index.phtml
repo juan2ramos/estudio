@@ -1,0 +1,46 @@
+
+<form id="form1" method="post" action="" enctype="multipart/form-data">
+    <input type="hidden" name="guardar" value="1" />
+    <p>Nombre:<br />
+    <input type="texto" name="nombre" value="<?php if(isset($this->datos['nombre'])) echo $this->datos['nombre']; ?>" /></p>
+     
+    <p>Descripcion:<br />
+        <textarea name="descripcion"  /><?php if(isset($this->datos['descripcion'])) echo $this->datos['descripcion']; ?></textarea></p>
+    
+    <p>Ofertas disponibles:<br />
+        <select name="oferta">
+            <option value="0">Seleccione la oferta....</option>
+            <?php for($i=0;$i<count($this->ofertas);$i++):?>
+            <option value=" <?php echo $this->ofertas[$i]['id_ofertas'];?>">
+                <?php echo $this->ofertas[$i]['descripcion'];?>
+            </option>
+            <?php endfor;?>
+        </select>
+    </p> 
+    
+     <p>Sectores:<br />
+        <?php for($i=0;$i<count($this->sectores);$i++):?>
+       <input type="checkbox" name="sectores[]" value="<?php echo $this->sectores[$i]['id_categorias']?>" /><?php echo $this->sectores[$i]['nombre']?><br />
+       <?php endfor;?>
+    </p>
+    <p>Seleccione la plantilla<br />  
+    <?php $nPlantillas = count($this->plantillas) ; ?>     
+        <select name="plantilla" size="<?php echo $nPlantillas ?>">
+    <?php for($i=0;$i<$nPlantillas;$i++):?>         
+        <option value="<?php echo $this->plantillas[$i]['id_plantillas'] ?>"><?php echo $this->plantillas[$i]['plantilla'] ?></option>
+        
+    <?php endfor;?>  
+    </select>        
+    </p>
+    
+    <p>Titulo:<br />
+    <input type="texto" name="titulo" value="<?php if(isset($this->datos['titulo'])) echo $this->datos['titulo']; ?>" /></p>
+     
+    <p>Mensaje:<br />
+        <textarea name="mensaje"  /><?php if(isset($this->datos['mensaje'])) echo $this->datos['mensaje']; ?></textarea></p>
+    
+    <p>Pie:<br />
+    <input type="texto" name="pie" value="<?php if(isset($this->datos['pie'])) echo $this->datos['pie']; ?>" /></p>
+     
+     <p><input type="submit" class="button" value="Guardar" /></p>
+</form>

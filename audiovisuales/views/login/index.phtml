@@ -1,0 +1,26 @@
+<section id="contenedor" style="max-width: 600px !important;">
+
+    <h2>Iniciar Sesi&oacute;n</h2>
+    <?php if (isset($this->_error)): ?>
+        <div id="error"><?php echo $this->_error; ?></div>
+    <?php endif; ?>
+
+    <form name="form1" method="post" action="">
+        <input type="hidden" value="1" name="enviar" />
+
+        <p>
+            <label>Usuario: </label>
+            <input type="text" name="nombreusuario" value="<?php if (isset($this->datos))echo $this->datos['nombreusuario']; ?>" placeholder="Ingrese el nombre de usuario" />
+        </p>
+
+        <p>
+            <label>Password: </label>
+            <input type="password" name="contrasenia" />
+        </p>
+
+        <p>
+            <input type="submit" value="ENVIAR" id="botton" />
+        </p>
+       
+    </form>
+</section>

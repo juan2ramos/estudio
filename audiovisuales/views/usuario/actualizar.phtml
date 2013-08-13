@@ -1,0 +1,34 @@
+
+
+<form id="form1" method="post" action="">
+    <input type="hidden" name="guardar" value="1" />
+    <p>Nombre:<br />
+    <input type="texto" name="nombre" value="<?php if(isset($this->datos['nombre'])) echo $this->datos['nombre']; ?>" /></p>
+    
+    <p>Apellido:<br />
+    <input type="texto" name="apellido" value="<?php if(isset($this->datos['apellido'])) echo $this->datos['apellido']; ?>" /></p>
+    
+    <p>Cedula:<br />
+    <input type="texto" name="cedula" value="<?php if(isset($this->datos['cedula'])) echo $this->datos['cedula']; ?>" /></p>
+    
+    <p>Fecha de Nacimiento: AA-MM-DD<br />
+    <input type="texto" name="fecha_nacimiento" value="<?php if(isset($this->datos['fecha_nacimiento'])) echo $this->datos['fecha_nacimiento']; ?>" /></p>
+    
+    <p>Email:<br />
+    <input type="texto" name="email" value="<?php if(isset($this->datos['email'])) echo $this->datos['email']; ?>" /></p>
+    
+    <p>Nombre Usuario:<br />
+    <input type="texto" name="nombreusuario" value="<?php if(isset($this->datos['nombreusuario'])) echo $this->datos['nombreusuario']; ?>" /></p>
+    
+    <p>Contraseña:<br />
+        <input type="password" name="pass" value="<?php if(isset($this->datos['contrasenia'])) echo $this->datos['contrasenia']; ?>" /></p>
+    <?php if (Session::get('autenticado') && (Session::get('level') == 1)) : ?>
+    <p>Tipo de usuario:<br />
+        <select name="id_tipo_usuarios">
+            <option value="0">Seleccione el tipo de usuario....</option>
+            <option value="1" <?php if(isset($this->datos['id_tipo_usuarios']) && $this->datos['id_tipo_usuarios'] == 1){ echo 'SELECTED '; } ?> >Administrador</option>
+            <option value="2" <?php if(isset($this->datos['id_tipo_usuarios']) && $this->datos['id_tipo_usuarios'] == 2){ echo 'SELECTED '; } ?>>Cliente</option>
+        </select>
+    <?php endif;?>
+    <p><input type="submit" class="button" value="Guardar" /></p>
+</form>

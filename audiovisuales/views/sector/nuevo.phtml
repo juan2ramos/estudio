@@ -1,0 +1,10 @@
+<form id="form1" method="post" action="<?php echo BASE_URL; ?>sector/crear">
+    <input type="hidden" name="guardar" value="1" />
+    <p>Nombre:<br />
+    <input type="texto" name="nombre" value="<?php if(isset($this->datos['titulo'])) echo $this->datos['titulo']; ?>" /></p>
+    
+    <p>Descripcion:<br />
+    <textarea name="descripcion"><?php if(isset($this->datos['cuerpo'])) echo $this->datos['cuerpo']; ?></textarea></p>
+    
+    <p><input type="submit" class="button" value="Guardar" /></p>
+</form>

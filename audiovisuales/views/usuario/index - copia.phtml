@@ -1,0 +1,52 @@
+<h2>usuarios</h2>
+<?php if(isset($this->usuarios) && count($this-> usuarios)) : ?>
+
+<table>
+   
+    <thead>        
+        <tr>
+            <td>id</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>E-mail</td>
+            <td>Usuario</td>
+            <td>Tipo</td>
+            <td>Ingreso</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php for($i = 0; $i < count($this-> usuarios); $i++): ?>
+    
+    <tr>
+        
+        <td><?php echo $i+1 ?></td>
+        <td><?php echo $this-> usuarios[$i]['nombredeusuario']; ?></td>
+        <td><?php echo $this-> usuarios[$i]['apellido']; ?></td>
+        <td><?php echo $this-> usuarios[$i]['email']; ?></td>
+        <td><?php echo $this-> usuarios[$i]['nombreusuario']; ?></td>
+        <td><?php echo $this-> usuarios[$i]['nombretipousuarios']; ?></td>
+        <td><?php echo $this-> usuarios[$i]['fecha_ingreso']; ?></td>
+        <td><a href="<?php echo BASE_URL . 'usuario/ingresar/' . $this-> usuarios[$i]['id_usuarios']; ?>">Editar</a></td>
+        <td><a href="<?php echo BASE_URL . 'usuario/eliminar/' . $this-> usuarios[$i]['id_usuarios']; ?>">Eliminar</a></td>
+        
+    </tr>
+    
+    <?php endfor;?>
+    </tbody>
+</table>
+
+<?php else: ?>
+
+<p><strong>No hay posts!</strong></p>
+
+<?php endif; ?>
+
+
+
+<?php if(Session::accesoViewEstricto(array('usuario'))): ?>
+
+<p><a href="<?php BASE_URL; ?>post/nuevo">Agregar Post</a></p>
+
+<?php endif; ?>

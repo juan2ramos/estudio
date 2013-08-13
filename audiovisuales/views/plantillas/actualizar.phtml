@@ -1,0 +1,29 @@
+<?php //print_r($_POST) ?>
+<form id="form1" method="post" action="" enctype="multipart/form-data">
+    <input type="hidden" name="guardar" value="1" />
+    <p>Nombre:<br />
+    <input type="texto" name="nombre" value="<?php if(isset($this->datos['nombre'])) echo $this->datos['nombre']; ?>" /></p>
+     
+    <p>Descripcion:<br />
+        <textarea name="descripcion"  /><?php if(isset($this->datos['descripcion'])) echo $this->datos['descripcion']; ?></textarea></p>
+    
+     <p>Tipo de usuario:<br />
+        <select name="id_tipo_plantillas">
+            <option value="0">Seleccione el tipo de usuario....</option>
+            <?php for($i=0;$i<count($this->datostipo);$i++):?>
+            <option 
+                value=" <?php echo $this->datostipo[$i]['id_tipo_plantillas'];?>" 
+                        <?php 
+                        if(isset($this->datostipo[$i]['id_tipo_plantillas']) && $this->datos['id_tipo_plantillas'] == $this->datostipo[$i]['id_tipo_plantillas']){
+                            echo 'SELECTED ';                             
+                        } 
+                        ?> 
+            >
+                <?php echo $this->datostipo[$i]['nombre'];?>
+            </option>
+            <?php endfor;?>
+        </select>
+    </p>     
+    <p>Archivo Html:<br /><input name="archivo" type="file" size="35" /></p>
+    <p><input type="submit" class="button" value="Guardar" /></p>
+</form>

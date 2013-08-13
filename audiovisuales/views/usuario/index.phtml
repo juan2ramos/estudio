@@ -1,0 +1,65 @@
+
+
+<section id = "contenedor">
+    <h2>Crear Usuarios</h2>
+    <?php if (isset($this->_error)): ?>
+        <div id="error"><?php echo $this->_error; ?></div>
+    <?php endif; ?>
+
+    <form name="form1" method="post" action="">
+        <input type="hidden" value="1" name="enviar" />
+        <p>
+            <label>Cedula: </label>
+            <input type="text" name="cedula" value="<?php if (isset($this->datos)) echo $this->datos['cedula']; ?>" placeholder="Ingrese la cedula"/>
+        </p>
+
+        <p>
+            <label>Nombre: </label>
+            <input type="text" name="nombre" value="<?php if (isset($this->datos)) echo $this->datos['nombre']; ?>" placeholder="Ingrese el nombre"/>
+        </p>
+        <p>
+            <label>Apellido: </label>
+            <input type="text" name="apellido" value="<?php if (isset($this->datos)) echo $this->datos['apellido']; ?>" placeholder="Ingrese el apellido"/>
+        </p>        
+        
+        <p>
+            <label>Fecha de nacimiento: </label>
+            <input type="date" name="fecha_nacimiento" value="<?php if (isset($this->datos)) echo $this->datos['fecha_nacimiento']; ?>" placeholder="Ingrese el fecha de nacimiento"/>
+        </p>
+
+        <p>
+            <label>Email: </label>
+            <input type="email" name="email" value="<?php if (isset($this->datos)) echo $this->datos['email']; ?>" placeholder="Ingrese el email"/>
+        </p>
+        <p>
+            <label>Contrase&ntilde;a: </label>
+            <input type="password" name="contrasenia" placeholder="Ingrese la contrase&ntilde;a"/>
+        </p>
+        <p>
+            <label>Nombre de usuario: </label>
+            <input type="text" name="nombreusuario" value="<?php if (isset($this->datos)) echo $this->datos['nombreusuario']; ?>" placeholder="Ingrese el nombre de usuario"/>
+        </p>
+        
+         <p>
+            <label>Tipo de usuario: </label>
+            <select name="id_rol">
+                <option value="0">Seleccione el tipo de usuario....</option>
+                    <?php 
+                   
+                    for ($i = 1; $i < count($this->datosrol); $i++): ?>
+                            <option value="<?php echo $this->datosrol[$i]['id_rol'];?>"<?php
+                            if ($this->datos['id_rol'] == $this->datosrol[$i]['id_rol'])
+                                   echo " SELECTED ";                                 
+                                ?>                            
+                            >
+                            <?php echo $this->datosrol[$i]['role']; ?>
+                            </option>
+                    <?php endfor; ?>
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="ENVIAR" id="botton" />
+        </p>
+    </form>
+</section>

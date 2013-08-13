@@ -1,0 +1,22 @@
+<form id="form1" method="post" action="">
+    <input type="hidden" name="guardar" value="1" />
+    <p>Nombre:<br />
+    <input type="texto" name="nombre" value="<?php echo $this->datos['nombre']?>" /></p>
+    
+    <p>Apellido:<br />
+    <input type="texto" name="apellido" value="<?php echo $this->datos['apellido']?>" /></p>
+    
+    <p>Email:<br />
+    <input type="texto" name="email" value="<?php echo $this->datos['email']?>" /></p>
+    <?php if (session::get('level') == 'Administrador') :?>
+    
+    
+    <?php endif;?>
+    <p>Sectores:<br />
+        <?php for($i=0;$i<count($this->sectores);$i++):?>
+       <input type="checkbox" name="sectores[]" value="<?php echo $this->sectores[$i]['id_categorias']?>" /><?php echo $this->sectores[$i]['nombre']?><br />
+       <?php endfor;?>
+    </p>
+    
+    <p><input type="submit" class="button" value="Guardar" /></p>
+</form>

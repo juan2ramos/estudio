@@ -1,0 +1,38 @@
+<h2>Plantillas</h2>
+<?php if(isset($this->plantillas ) && count($this-> plantillas )) : ?>
+
+<table>
+    
+    <thead>        
+        <tr>
+            <td>id</td>
+            <td>Nombre</td>            
+            <td>Descripcion</td>
+            <td>Tipo plantilla</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php for($i = 0; $i < count($this-> plantillas ); $i++): ?>
+    
+    <tr>
+        
+        <td><?php echo $i+1 ?></td>
+        <td><?php echo $this-> plantillas [$i]['plantilla']; ?></td>
+        <td><?php echo $this-> plantillas [$i]['descripcion']; ?></td>
+        <td><?php echo $this-> plantillas [$i]['tipo_plantilla']; ?></td>
+        <td><a href="<?php echo BASE_URL . 'plantillas/ingresar/' . $this-> plantillas [$i]['id_plantillas']; ?>">Editar</a></td>
+        <td><a href="<?php echo BASE_URL . 'plantillas/eliminar/' . $this-> plantillas [$i]['id_plantillas']; ?>">Eliminar</a></td>
+        
+    </tr>
+    
+    <?php endfor;?>
+    </tbody>
+</table>
+
+<?php else: ?>
+
+
+
+<?php endif; ?>
+
+

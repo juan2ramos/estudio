@@ -1,0 +1,37 @@
+<h2>Campañas Creadas</h2>
+<?php if(isset($this->campanias) && count($this->campanias)) : ?>
+
+<table>
+    <thead>        
+        <tr>
+            
+            <td>Nombre</td>
+            <td>Descrpcion</td>
+            <td>Fecha Creacion</td>
+            
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+    <?php for($i = 0; $i < count($this->campanias); $i++): ?>
+    
+    <tr>        
+        <td><?php echo $this->campanias[$i]['nombre']; ?></td>
+        <td><?php echo $this->campanias[$i]['descrpcion']; ?></td>
+        <td><?php echo $this->campanias[$i]['fecha_creacion']; ?></td>
+        <?php if($this->campanias[$i]['pago_realizado']==0): ?> 
+        <td><a href="<?php echo BASE_URL . 'campania/pagar/' . $this->campanias[$i]['id_campania']; ?>">Pagar</a></td>
+        <?php else:?>
+        <td>Cancelada</td>
+        <td><a href="<?php echo BASE_URL . 'campania/envioCampania/' . $this->campanias[$i]['id_campania']; ?>">Enviar</a></td>
+        <?php 
+        
+        endif;?>
+        
+    </tr>
+    
+    <?php endfor;?>
+    </tbody>
+</table>
+<?php endif; ?>
